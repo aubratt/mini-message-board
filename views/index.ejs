@@ -9,6 +9,9 @@
 
 <body>
   <h1>Home</h1>
+  <a href="/new">
+    <button>New Message</button>
+  </a>
   <% messages.forEach((message) => { %>
   <p><%- message.user %></p>
   <p><%- message.text %></p>
