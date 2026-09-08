@@ -1,0 +1,127 @@
+/* Josh's Custom CSS Reset https://www.joshwcomeau.com/css/custom-css-reset/ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+*:not(dialog) {
+  margin: 0;
+}
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/* Mini Message Board */
+body {
+  background-color: #121212;
+  color: #e5e7eb;
+  font-family: sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #e5e7eb;
+}
+
+/* Navbar */
+nav {
+  background-color: #252525;
+}
+.nav__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 640px;
+  margin: auto;
+  padding: 16px;
+}
+.nav__home {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.nav__new {
+  display: flex;
+  align-items: center;
+  background-color: #21498a;
+  border-radius: 8px;
+  font-weight: bold;
+  padding: 8px 12px;
+}
+.nav__new:hover {
+  background-color: #1e427c;
+}
+.nav__new:active {
+  transform: scale(1.05);
+}
+
+/* Content */
+.content {
+  max-width: 640px;
+  margin: auto;
+  padding: 16px;
+}
+
+/* Messages */
+.messages {
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+}
+.message {
+  background-color: #252525;
+  border-radius: 12px;
+  padding: 8px 12px;
+}
+.message__heading {
+  display: flex;
+  justify-content: space-between;
+}
+.message__user {
+  font-weight: bold;
+}
+.message__text {
+}
