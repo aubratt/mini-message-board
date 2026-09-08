@@ -20,6 +20,7 @@ const links = [{ href: "/" }];
 app.get("/", (req, res) => {
   res.render("index");
 });
+app.post("/new", (req, res) => {});
 
 app.use((error, req, res, next) => {
   console.error(error);
