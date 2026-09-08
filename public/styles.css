@@ -81,8 +81,12 @@ a {
 .btn:active {
   transform: scale(1.05);
 }
-input, textarea {
+input,
+textarea {
   all: unset;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
   background-color: #4f4f4f;
   border-radius: 8px;
   padding: 8px 12px;
