@@ -61,10 +61,31 @@ body {
   color: #e5e7eb;
   font-family: sans-serif;
 }
-
 a {
   text-decoration: none;
   color: #e5e7eb;
+}
+.btn {
+  all: unset;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  background-color: #21498a;
+  border-radius: 8px;
+  font-weight: bold;
+  padding: 8px 12px;
+}
+.btn:hover {
+  background-color: #1e427c;
+}
+.btn:active {
+  transform: scale(1.05);
+}
+input, textarea {
+  all: unset;
+  background-color: #4f4f4f;
+  border-radius: 8px;
+  padding: 8px 12px;
 }
 
 /* Navbar */
@@ -82,20 +103,6 @@ nav {
 .nav__home {
   font-size: 1.5rem;
   font-weight: bold;
-}
-.nav__new {
-  display: flex;
-  align-items: center;
-  background-color: #21498a;
-  border-radius: 8px;
-  font-weight: bold;
-  padding: 8px 12px;
-}
-.nav__new:hover {
-  background-color: #1e427c;
-}
-.nav__new:active {
-  transform: scale(1.05);
 }
 
 /* Content */
@@ -123,5 +130,29 @@ nav {
 .message__user {
   font-weight: bold;
 }
-.message__text {
+
+/* New (Form) */
+form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+  background-color: #252525;
+  border-radius: 16px;
+  padding: 16px;
+}
+.form__heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.form__heading h1 {
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+}
+.form__section {
+  display: flex;
+  flex-direction: column;
+  background-color: #393939;
+  border-radius: 8px;
+  padding: 8px;
 }
