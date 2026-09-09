@@ -3,16 +3,17 @@ const { Router } = require("express");
 const indexRouter = Router();
 const messages = [
   {
-    text: "Hi there!",
-    user: "Amando",
+    message: "Hi there!",
+    name: "Amando",
     added: new Date(),
   },
   {
-    text: "Hello World!",
-    user: "Charles",
+    message: "Hello World!",
+    name: "Charles",
     added: new Date(),
   },
 ];
+
 const getTimeSince = (date) => {
   const diff = Date.now() - new Date(date).getTime();
 
@@ -37,11 +38,25 @@ const getTimeSince = (date) => {
 indexRouter.get("/", (req, res) =>
   res.render("index", { messages: messages, getTimeSince: getTimeSince }),
 );
-indexRouter.get("/new", (req, res) => res.render("form"));
+indexRouter.get("/new", (req, res) =>
+  res.render("form", { errors: {} }),
+);
 indexRouter.post("/new", (req, res) => {
+  const errors = {};
+  if (req.body.name.trim() === "") {
+    errors.name = "Name is required"
+  }
+  if (req.body.message.trim() === "") {
+    errors.message = "Message is required"
+  }
+
+  if (Object.keys(errors).length > 0) {
+    return res.status(400).render("form", { errors: errors })
+  }
+
   messages.push({
-    text: req.body.message,
-    user: req.body.name,
+    message: req.body.message,
+    name: req.body.name,
     added: new Date(),
   });
   res.redirect("/");

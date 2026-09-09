@@ -15,11 +15,11 @@
       <% messages.forEach((message) => { %>
       <div class="message">
         <div class="message__heading">
-          <p class="message__user"><%- message.user %></p>
+          <p class="message__user"><%- message.name %></p>
           <p><%- getTimeSince(message.added) %></p>
         </div>
         <div class="message__text">
-          <p><%- message.text %></p>
+          <p><%- message.message %></p>
         </div>
       </div>
       <% }) %>

@@ -160,3 +160,7 @@ form {
   border-radius: 8px;
   padding: 8px;
 }
+.form__error {
+  color: #cbae84;
+  font-size: 0.875rem;
+}

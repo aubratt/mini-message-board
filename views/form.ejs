@@ -19,10 +19,16 @@
       <div class="form__section">
         <label for="name">Name</label>
         <input id="name" name="name" type="text" placeholder="Thor Odinson">
+        <% if (errors.name) { %>
+        <p class="form__error"><%- errors.name %></p>
+        <% } %>
       </div>
       <div class="form__section">
         <label for="message">Message</label>
         <textarea name="message" id="message" rows="6" cols="30" placeholder="What's on your mind?"></textarea>
+        <% if (errors.message) { %>
+        <p class="form__error"><%- errors.message %></p>
+        <% } %>
       </div>
     </form>
   </div>
