@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles.css">
+  <title>Message</title>
+</head>
+
+<body>
+  <%- include("partials/navbar") %>
+  <div class="content">
+    <div class="message">
+      <div class="message__heading">
+        <p class="message__user"><%- message.name %></p>
+        <p><%- getTimeSince(message.added) %></p>
+      </div>
+      <div class="message__text">
+        <p><%- message.message %></p>
+      </div>
+      <div>
+        <p class="message__full-date">Posted on <%- formatFullDate(message.added) %></p>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
