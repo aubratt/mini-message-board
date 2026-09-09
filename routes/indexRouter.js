@@ -16,6 +16,7 @@ const messages = [
   },
 ];
 
+
 const getTimeSince = (date) => {
   const diff = Date.now() - new Date(date).getTime();
 

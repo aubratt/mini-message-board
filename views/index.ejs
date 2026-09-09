@@ -13,7 +13,7 @@
   <%- include("partials/navbar") %>
   <div class="content">
     <div class="messages">
-      <% messages.forEach((message) => { %>
+      <% messages.slice().reverse().forEach((message) => { %>
       <div class="message">
         <div class="message__heading">
           <p class="message__user"><%- message.name %></p>
