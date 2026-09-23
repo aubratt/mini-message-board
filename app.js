@@ -9,8 +9,8 @@ app.set("view engine", "ejs");
 app.use(express.static(assetsPath));
 app.use(express.urlencoded({ extended: true }));
 
-const PORT = process.env.port || 3000;
-app.listen(PORT, '0.0.0.0', (error) => {
+const PORT = 3000;
+app.listen(PORT, (error) => {
   if (error) {
     throw error;
   }
