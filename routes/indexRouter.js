@@ -1,21 +1,6 @@
 const { Router } = require("express");
-
 const indexRouter = Router();
-const messages = [
-  {
-    id: crypto.randomUUID(),
-    message: "Hi there!",
-    name: "Amando",
-    added: new Date(),
-  },
-  {
-    id: crypto.randomUUID(),
-    message: "Hello World!",
-    name: "Charles",
-    added: new Date(),
-  },
-];
-
+const db = require("../db/queries");
 
 const getTimeSince = (date) => {
   const diff = Date.now() - new Date(date).getTime();
@@ -52,13 +37,12 @@ const formatFullDate = (date) => {
   return `${dateString} at ${timeString}`;
 };
 
-indexRouter.get("/", (req, res) =>
-  res.render("index", { messages: messages, getTimeSince: getTimeSince }),
-);
-indexRouter.get("/message/:messageId", (req, res) => {
-  const message = messages.find(
-    (message) => message.id === req.params.messageId,
-  );
+indexRouter.get("/", async (req, res) => {
+  const messages = await db.getAllMessages();
+  res.render("index", { messages: messages, getTimeSince: getTimeSince });
+});
+indexRouter.get("/message/:messageId", async (req, res) => {
+  const message = await db.getAllMessages();
   res.render("message", {
     message: message,
     getTimeSince: getTimeSince,
@@ -79,12 +63,7 @@ indexRouter.post("/new", (req, res) => {
     return res.status(400).render("form", { errors: errors });
   }
 
-  messages.push({
-    id: crypto.randomUUID(),
-    message: req.body.message,
-    name: req.body.name,
-    added: new Date(),
-  });
+  db.insertMessage(req.body.name.trim(), req.body.message.trim());
   res.redirect("/");
 });
 
